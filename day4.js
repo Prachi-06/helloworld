@@ -1,6 +1,7 @@
 const express=require('express');
 const app=express();
 const db=require('./db');
+require('dotenv').config();
 
 const bodyparser=require('body-parser');
 app.use(bodyparser.json())
@@ -18,5 +19,6 @@ app.get('/idli',(req,res)=>{
 const personRoutes=require('./routes/personRoutes.js')
 app.use('/person',personRoutes);
 
+const Port=process.env.PORT || 3000
 
-app.listen(4000);
+app.listen(Port);
