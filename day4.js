@@ -16,8 +16,13 @@ app.get('/idli',(req,res)=>{
   res.send("I love idli");
 })
 
-const personRoutes=require('./routes/personRoutes.js')
-app.use('/person',personRoutes);
+// Import the router files
+const personRoutes = require('./routes/personRoutes');
+const menuItemRoutes = require('./routes/menuItemRoutes');
+
+// Use the routers
+app.use('/person', personRoutes);
+app.use('/menu', menuItemRoutes);
 
 const Port=process.env.PORT || 3000
 
